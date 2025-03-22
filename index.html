@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Образовательная игра</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Образовательная игра</h1>
+
+    <!-- Гамбургер-меню -->
+    <div id="hamburger-menu" class="hamburger-menu">
+        <div class="hamburger-icon" onclick="toggleMenu()">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+    </div>
+
+    <!-- Боковая панель профиля -->
+    <div id="profile-panel" class="profile-panel">
+        <h3>Профиль</h3>
+        <div id="profile-info">
+            <label for="avatar-upload">
+                <img id="avatar" src="default-avatar.png" alt="Аватар">
+            </label>
+            <input type="file" id="avatar-upload" accept="image/*" onchange="uploadAvatar(event)">
+            <p><strong>Email:</strong> <span id="user-email">Не зарегистрирован</span></p>
+            <p><strong>Рейтинг:</strong> <span id="user-rating">0</span></p>
+            <p><strong>Выбранные предметы:</strong></p>
+            <select id="subject-select" multiple>
+                <option value="Физика">Физика</option>
+                <option value="Русский">Русский</option>
+                <option value="Математика">Математика</option>
+            </select>
+            <button onclick="saveProfile()">Сохранить</button>
+        </div>
+        <button id="logout-btn" onclick="logout()">Выйти</button>
+    </div>
+
+    <!-- Вкладки предметов -->
+    <div id="main-tabs" class="tabs">
+        <div class="tab" onclick="showSection('physics')">Физика ОГЭ</div>
+        <div class="tab" onclick="showSection('russian')">Русский ОГЭ</div>
+        <div class="tab" onclick="showSection('math')">Математика ОГЭ</div>
+    </div>
+
+    <!-- Контент вкладок -->
+    <div id="physics" class="content">
+        <h2>Физика ОГЭ</h2>
+        <div class="sub-tabs" id="physics-topics"></div>
+        <button class="back-button" onclick="goBack()">Назад</button>
+    </div>
+
+    <div id="russian" class="content">
+        <h2>Русский ОГЭ</h2>
+        <div class="sub-tabs" id="russian-topics"></div>
+        <button class="back-button" onclick="goBack()">Назад</button>
+    </div>
+
+    <div id="math" class="content">
+        <h2>Математика ОГЭ</h2>
+        <div class="sub-tabs" id="math-topics"></div>
+        <button class="back-button" onclick="goBack()">Назад</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
